@@ -29,4 +29,13 @@ public class MemberMissionServiceImpl implements MemberMissionService {
         return memberMissionRepository.save(newMemberMission);
     }
 
+    @Override
+    public MemberMission finishMemberMission(Long memberMissionId, Long memberId) {
+        MemberMission memberMission = memberMissionRepository.getById(memberMissionId);
+
+        memberMission.changeStatus();
+
+        return memberMissionRepository.save(memberMission);
+    }
+
 }
