@@ -7,6 +7,8 @@ import umc.study.domain.Mission;
 import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.MissionStatus;
 
+import static umc.study.domain.enums.MissionStatus.COMPLETE;
+
 @Entity
 @Getter
 @Builder
@@ -27,4 +29,8 @@ public class MemberMission extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mission_id")
     private Mission mission;
+
+    public void changeStatus() {
+        this.status = COMPLETE;
+    }
 }
