@@ -8,4 +8,6 @@ import umc.study.domain.Store;
 
 public interface MissionRepository extends JpaRepository<Mission, Long> {
     Page<Mission> findAllByStore(Store store, PageRequest of);
+
+    Page<Mission> findAllById(Long id, PageRequest of);
 }
